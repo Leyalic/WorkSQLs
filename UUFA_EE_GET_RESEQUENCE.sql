@@ -49,15 +49,12 @@ FROM (
                                 WHEN B.FIN_AID_TYPE = 'G' THEN 20
                                 WHEN B.FIN_AID_TYPE = 'W' THEN 25
                                 WHEN B.FEDERAL_ID = 'STFS' THEN 30
-                                WHEN B.FIN_AID_TYPE = 'L'
-                                AND B.FA_SOURCE = 'I' THEN 35
-                                WHEN B.FIN_AID_TYPE = 'L'
-                                AND B.NEED_BASED = 'Y' THEN 40
+                                WHEN B.FIN_AID_TYPE = 'L' AND B.NEED_BASED = 'Y' THEN 35
+                                WHEN B.FIN_AID_TYPE = 'L' AND B.FA_SOURCE = 'I' THEN 40
                                 WHEN B.FEDERAL_ID = 'STFU' THEN 45
                                 WHEN B.FEDERAL_ID = 'PLUS' THEN 50
                                 WHEN B.FEDERAL_ID = 'GPLS' THEN 55
-                                WHEN B.FIN_AID_TYPE = 'L'
-                                AND B.FA_SOURCE = 'P' THEN 60
+                                WHEN B.FIN_AID_TYPE = 'L' AND B.FA_SOURCE = 'P' THEN 60
                                 ELSE 100
                             END,
                             A.PKG_SEQ_NBR / 10
